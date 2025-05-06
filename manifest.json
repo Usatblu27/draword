@@ -1,7 +1,7 @@
 {
   "name": "draword",
   "short_name": "Игра",
-  "start_url": "/",
+  "start_url": "/draword2/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
