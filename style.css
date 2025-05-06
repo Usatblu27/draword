@@ -453,7 +453,7 @@ button:disabled {
   --modal-text: #00e0ff;
   --button-text-color: black;
   font-family: "Press Start 2P", cursive;
-  font-size: 10px;
+  font-size: 8px;
 }
 
 .theme-synthwave {
