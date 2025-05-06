@@ -417,5 +417,39 @@
     </div>
     <script src="words-dictionary.js"></script>
     <script src="script.js"></script>
+      <script>
+      const CACHE_NAME = "my-game-cache-v1";
+      const urlsToCache = [
+        "/",
+        "/index.html",
+        "/styles.css",
+        "/script.js",
+        "/icon-192x192.png",
+      ];
+
+      self.addEventListener("install", (event) => {
+        event.waitUntil(
+          caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
+        );
+      });
+
+      self.addEventListener("fetch", (event) => {
+        event.respondWith(
+          caches
+            .match(event.request)
+            .then((response) => response || fetch(event.request))
+        );
+      });
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((registration) => console.log("SW registered!"))
+            .catch((err) => console.log("SW registration failed: ", err));
+        });
+      }
+    </script>
   </body>
 </html>
