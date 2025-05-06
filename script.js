@@ -631,6 +631,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const timeSpent = endTime - startTime;
         const gameMode = currentGame === 0 ? 3 : currentGame === 1 ? 4 : 5;
         updateStats(gameMode, timeSpent, hintsUsed);
+        // ... остальной код
       }
       endTime = new Date();
       messageEl.textContent = "Поздравляю! Вы решили головоломку!";
