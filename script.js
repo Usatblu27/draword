@@ -135,10 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Аудио
-  const moveSound = new Audio("/audio/move.mp3");
+  const moveSound = new Audio("audio/move.mp3");
   moveSound.volume = 0.5;
 
-  const winSound = new Audio("/audio/win.mp3");
+  const winSound = new Audio("audio/win.mp3");
   winSound.volume = 0.7;
 
   // Фоновая музыка
