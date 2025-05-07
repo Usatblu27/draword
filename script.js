@@ -452,6 +452,24 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderBoard() {
     board.innerHTML = "";
     board.className = "board";
+
+    // Устанавливаем атрибут режима игры
+    const gameMode =
+      currentGame === 0 ? "3x3" : currentGame === 1 ? "4x4" : "5x5";
+    board.setAttribute("data-game-mode", gameMode);
+
+    // Разные размеры для разных режимов
+    const tileSizes = {
+      "3x3": { size: 70, fontSize: 28 },
+      "4x4": { size: 60, fontSize: 24 },
+      "5x5": { size: 50, fontSize: 20 },
+    };
+
+    const { size, fontSize } = tileSizes[gameMode];
+
+    board.style.setProperty("--tile-size", `${size}px`);
+    board.style.setProperty("--tile-font-size", `${fontSize}px`);
+
     // Динамический расчёт размера тайлов для мобильных
     if (window.innerWidth <= 400) {
       const wordCount = currentGame === 0 ? 3 : currentGame === 1 ? 4 : 5;
