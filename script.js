@@ -452,7 +452,21 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderBoard() {
     board.innerHTML = "";
     board.className = "board";
-
+    // Динамический расчёт размера тайлов для мобильных
+    if (window.innerWidth <= 400) {
+      const wordCount = currentGame === 0 ? 3 : currentGame === 1 ? 4 : 5;
+      const containerWidth = board.offsetWidth - 20; // учитываем padding
+      // Устанавливаем CSS переменные с динамическими размерами
+      const tileSize = Math.min(
+        80, // максимальный размер
+        Math.floor(containerWidth / (wordCount + 0.5)) // расчёт по ширине
+        );
+      board.style.setProperty("--tile-size", `${tileSize}px`);
+    } else {
+      // Стандартные размеры для десктопов
+      const tileSize = currentGame === 0 ? 80 : currentGame === 1 ? 80 : 70;
+      board.style.setProperty("--tile-size", `${tileSize}px`);
+    }
     const wordCount = currentGame === 0 ? 3 : currentGame === 1 ? 4 : 5;
     const wordLength = currentGame === 0 ? 3 : currentGame === 1 ? 4 : 5;
     const tileSize =
