@@ -988,14 +988,14 @@ button:disabled {
   }
 
   .tile-3x3 {
-    width: calc((70vw - 30px) / 3.5);
-    height: calc((70vw - 30px) / 3.5);
+    width: calc((80vw - 30px) / 3.5);
+    height: calc((80vw - 30px) / 3.5);
     font-size: calc(20px + 1vw);
   }
 
   .tile-4x4 {
-    width: calc((85vw - 40px) / 4.5);
-    height: calc((85vw - 40px) / 4.5);
+    width: calc((90vw - 40px) / 4.5);
+    height: calc((90vw - 40px) / 4.5);
     font-size: calc(17px + 1vw);
   }
 
