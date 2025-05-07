@@ -949,6 +949,77 @@ button:disabled {
   }
 }
 
+@media (max-width: 400px) {
+  .game-container {
+    width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
+  }
+
+  .board {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .word-row {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    margin-bottom: 3px;
+    width: 100%;
+  }
+
+  .word-indicator {
+    width: 15px;
+    height: 15px;
+    align-self: center;
+    flex-shrink: 0;
+  }
+
+  .tile {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  .tile-3x3 {
+    width: calc((100vw - 30px) / 3.5);
+    height: calc((100vw - 30px) / 3.5);
+    font-size: calc(14px + 1vw);
+  }
+
+  .tile-4x4 {
+    width: calc((100vw - 40px) / 4.5);
+    height: calc((100vw - 40px) / 4.5);
+    font-size: calc(12px + 1vw);
+  }
+
+  .tile-5x5 {
+    width: calc((100vw - 50px) / 5.5);
+    height: calc((100vw - 50px) / 5.5);
+    font-size: calc(10px + 1vw);
+  }
+
+  .controls {
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0 5px;
+  }
+
+  .controls button {
+    padding: 6px 8px;
+    font-size: 12px;
+    flex: 1 0 calc(50% - 10px);
+    min-width: 0;
+  }
+}
+
 .instructions {
   text-align: center;
   width: 300px;
