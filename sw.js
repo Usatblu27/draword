@@ -7,15 +7,21 @@ const urlsToCache = [
   '/draword/icon-192x192.png'
 ];
 
-self.addEventListener("install", (event) => {
+const CACHE_NAME = 'offline-v1';
+const OFFLINE_URL = '/offline.html';
+
+self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
+        caches.open(CACHE_NAME)
+            .then((cache) => cache.add(OFFLINE_URL))
     );
 });
 
-self.addEventListener("fetch", (event) => {
-    event.respondWith(
-        caches.match(event.request)
-            .then((response) => response || fetch(event.request))
-    );
+self.addEventListener('fetch', (event) => {
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request)
+                .catch(() => caches.match(OFFLINE_URL))
+        );
+    }
 });
