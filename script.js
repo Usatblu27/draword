@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // wordsDictionaries теперь доступна глобально
   console.log(wordsDictionaries); // Проверка, что слова загружены
 
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('SW registered'))
+        .catch(err => console.log('SW error: ', err));
+}
+
   // Переменные игры
   let currentGame = 0;
   let letters = [];
